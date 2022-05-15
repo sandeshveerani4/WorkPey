@@ -1,13 +1,20 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import Post from "./Post/Post";
-
+import { Loading } from "../Loading";
 const Posts = () => {
-  return (
-    <>
-      <h1>Posts</h1>
-      <Post />
-      <Post />
-    </>
+  const posts = useSelector((state) => state.posts);
+  console.log(posts);
+  return !posts.length ? (
+    <Loading />
+  ) : (
+    <div className="p-1">
+      {posts.map((data, index) => (
+        <div key={index}>
+          <Post post={data} />w
+        </div>
+      ))}
+    </div>
   );
 };
 
