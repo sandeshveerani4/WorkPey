@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Post from "./Post/Post";
-import { Loading } from "../Loading";
+import { Loading } from "../../Loading";
 const Posts = () => {
   const posts = useSelector((state) => state.posts);
   console.log(posts);
@@ -11,7 +11,7 @@ const Posts = () => {
     <div className="p-1">
       {posts.map((data, index) => (
         <div key={index}>
-          <Post post={data} />w
+          <Post post={data} />
         </div>
       ))}
     </div>

@@ -1,7 +1,24 @@
-import React, { useEffect } from "react";
-import { getPosts } from "./actions/posts";
-import Posts from "./components/Posts/Posts";
-import Form from "./components/Form";
+import React from "react";
+import Home from "./components/Home/Home";
+import Blog from "./components/Blog/Blog";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import Login from "./components/Login/Login";
+import Footer from "./components/Footer";
+
+const App = () => (
+  <BrowserRouter>
+    <NavBar />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/login" element={<Login isLogin={true} />} />
+      <Route path="/signup" element={<Login isLogin={false} />} />
+    </Routes>
+    <Footer />
+  </BrowserRouter>
+);
+export default App;
 
 /* import { useDispatch } from "react-redux";
 export default function Example() {
